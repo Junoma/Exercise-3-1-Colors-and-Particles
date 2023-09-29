@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://wlhd3xyfvblm" path="res://Paddle/Paddle.tscn" id="2"]
 [ext_resource type="Script" path="res://Ball/Ball_Container.gd" id="3"]
 [ext_resource type="Script" path="res://Game.gd" id="4"]
-[ext_resource type="PackedScene" path="res://UI/Pause_Menu.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b8sfhgedya18u" path="res://UI/Pause_Menu.tscn" id="5"]
 [ext_resource type="Script" path="res://Wall/Wall.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bx3nxb0t4wryk" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://1rnbjmcx1n5y" path="res://UI/Instructions.tscn" id="8"]
@@ -76,17 +76,9 @@ script = ExtResource("3")
 [node name="HUD" parent="UI" instance=ExtResource("7")]
 process_mode = 0
 visible = false
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Pause_Menu" parent="UI" instance=ExtResource("5")]
 visible = false
-layout_mode = 3
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Instructions" parent="UI" instance=ExtResource("8")]
 process_mode = 3
-grow_horizontal = 2
-grow_vertical = 2

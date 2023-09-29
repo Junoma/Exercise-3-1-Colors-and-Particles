@@ -6,7 +6,11 @@ func _ready():
 	pass
 
 func _physics_process(_delta):
-	pass
+	if $ColorRect.color.s > 0:
+		$ColorRect.color.s -= decay
+	if $ColorRect.color.v < 1:
+		$ColorRect.color.v += decay
 
 func hit():
-	pass
+	$ColorRect.color = Color8(201,42,42,255)
+	
