@@ -83,6 +83,8 @@ grow_vertical = 2
 visible = false
 layout_mode = 3
 anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Instructions" parent="UI" instance=ExtResource("8")]
 process_mode = 3

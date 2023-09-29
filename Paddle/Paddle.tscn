@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://wlhd3xyfvblm"]
+[gd_scene load_steps=4 format=3 uid="uid://wlhd3xyfvblm"]
 
 [ext_resource type="Script" path="res://Paddle/Paddle.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://df4q16gyaikvc" path="res://icon.png" id="2_upa6u"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(50, 10)
@@ -15,3 +16,9 @@ offset_bottom = 20.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(50, 10)
 shape = SubResource("1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+texture = ExtResource("2_upa6u")
