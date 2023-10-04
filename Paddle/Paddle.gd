@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 var target = Vector2.ZERO
-@export var speed = 10.0
+var speed = 10.0
 var width = 0
+var time_highlight = 0.4
+var time_highlight_size = 0.3
 var decay = 0.02
+var tween
 
 func _ready():
 	width = $CollisionShape2D.get_shape().size.x
@@ -12,14 +15,21 @@ func _ready():
 func _physics_process(_delta):
 	target.x = clamp(target.x, 0, Global.VP.x - 2*width)
 	position = target
-	if $Highlight.modulate.a > 0:
-		$Highlight.modulate.a -= decay
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		target.x += event.relative.x
 
-func hit():
+func hit(_ball):
+	$Confetti.emitting = true
+	if tween:
+		tween.kill()
+		tween = create_tween().set_parallel(true)
+		$Images/Highlight.modulate.a = 1.0
+		tween.tween_property($Images/Highlight, "modulate:a", 0, time_highlight)
+		$Images/Highlight.scale = Vector2(1.5, 1.5)
+		tween.tween_property($Images/Highlight, "scale", Vector2(1,1), time_highlight_size).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
 	$Highlight.modulate.a = 1.0
 	$Confetti.emitting = true
 	

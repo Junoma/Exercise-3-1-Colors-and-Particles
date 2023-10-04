@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bojhdjmh8uty8"]
+[gd_scene load_steps=12 format=3 uid="uid://bojhdjmh8uty8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://wlhd3xyfvblm" path="res://Paddle/Paddle.tscn" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Wall/Wall.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bx3nxb0t4wryk" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://1rnbjmcx1n5y" path="res://UI/Instructions.tscn" id="8"]
+[ext_resource type="Script" path="res://Camera.gd" id="9_jlyry"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(202, 1002.5)
@@ -82,3 +83,6 @@ visible = false
 
 [node name="Instructions" parent="UI" instance=ExtResource("8")]
 process_mode = 3
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("9_jlyry")

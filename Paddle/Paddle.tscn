@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://wlhd3xyfvblm"]
+[gd_scene load_steps=8 format=3 uid="uid://wlhd3xyfvblm"]
 
 [ext_resource type="Script" path="res://Paddle/Paddle.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://df4q16gyaikvc" path="res://icon.png" id="2_upa6u"]
 [ext_resource type="Texture2D" uid="uid://c0gblf1hi4mpg" path="res://Assets/paddleRed.png" id="3_8vx2i"]
 [ext_resource type="Texture2D" uid="uid://bmdjsofi77wg5" path="res://Assets/paddleBlu.png" id="4_8l21q"]
 [ext_resource type="Texture2D" uid="uid://dsvfoeyxcg46j" path="res://Assets/confetti.png" id="5_hxgo3"]
@@ -26,11 +25,13 @@ script = ExtResource("1")
 position = Vector2(50, 10)
 shape = SubResource("1")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Confetti" type="CPUParticles2D" parent="."]
+position = Vector2(52, 15)
 emitting = false
 amount = 20
 one_shot = true
-texture = ExtResource("2_upa6u")
+texture = ExtResource("5_hxgo3")
+color = Color(1, 0.219608, 1, 1)
 
 [node name="Paddle" type="Sprite2D" parent="."]
 position = Vector2(50, 10)
