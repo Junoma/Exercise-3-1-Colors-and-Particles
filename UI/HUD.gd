@@ -3,6 +3,8 @@ extends Control
 @export var indicator_margin = Vector2(25, 15)
 @export var indicator_index = 25
 @onready var Indicator = load("res://UI/Indicator.tscn")
+var indicator_scale = Vector2(1,1)
+
 
 func _ready():
 	update_score()
@@ -37,7 +39,7 @@ func breathe():
 		tween.tween_property(i.get_node("Highlight"), "scale", indicator_scale, 0.5)
 		tween.tween_property(i.get_node("Highlight"), "modulate:a", indicator_mod, 0.5)
 	tween.set_parallel(false)
-	tween.tween_callback(self.breathe) = null
+	tween.tween_callback(breathe)
 
 func _on_Timer_timeout():
 	Global.update_time(-1)

@@ -42,7 +42,7 @@ func _physics_process(_delta):
 	if dying and not $Confetti.emitting and not tween:
 		queue_free()
 
-func hit():
+func hit(ball):
 	die()
 
 func die():
@@ -61,3 +61,7 @@ func die():
 	tween.tween_property($ColorRect, "color:a", 0, time_a)
 	tween.tween_property($ColorRect, "color:s", 0, time_s)
 	tween.tween_property($ColorRect, "color:v", 0, time_v)
+	var die_sound = get_node_or_null("/root/Game/Die_Sound")
+	if die_sound != null:
+		die_sound.play()
+	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bojhdjmh8uty8"]
+[gd_scene load_steps=13 format=3 uid="uid://bojhdjmh8uty8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://wlhd3xyfvblm" path="res://Paddle/Paddle.tscn" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bx3nxb0t4wryk" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://1rnbjmcx1n5y" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Camera.gd" id="9_jlyry"]
+[ext_resource type="AudioStream" uid="uid://b4qkxc3p5c8ct" path="res://Assets/Starry_Eyes.mp3" id="10_gl2p5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(202, 1002.5)
@@ -85,4 +86,9 @@ visible = false
 process_mode = 3
 
 [node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
 script = ExtResource("9_jlyry")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gl2p5")
+autoplay = true

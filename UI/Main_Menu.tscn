@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgdgq5dqlotfp"]
+[gd_scene load_steps=4 format=3 uid="uid://bgdgq5dqlotfp"]
 
 [ext_resource type="Script" path="res://UI/Main_Menu.gd" id="1"]
 [ext_resource type="Theme" uid="uid://dtkx4mmowlxkf" path="res://UI/new_theme.tres" id="1_b5ity"]
+[ext_resource type="AudioStream" uid="uid://b4qkxc3p5c8ct" path="res://Assets/Starry_Eyes.mp3" id="3_l6vlb"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -51,6 +52,10 @@ offset_top = 50.0
 offset_right = 100.0
 offset_bottom = 90.0
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l6vlb")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
