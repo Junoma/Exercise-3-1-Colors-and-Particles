@@ -1,9 +1,19 @@
 extends Control
 
-@export var indicator_margin = Vector2(25, 15)
-@export var indicator_index = 25
-@onready var Indicator = load("res://UI/Indicator.tscn")
-var indicator_scale = Vector2(1,1)
+
+
+var Indicator = load("res://UI/Indicator.tscn")
+var indicator_margin = Vector2(25, 15)
+var indicator_index = 25
+var indicator_mod = 0.0
+var indicator_mod_start = 0.0
+var indicator_mod_target = 0.5
+var indicator_scale = Vector2(0.5,0.5)
+var indicator_scale_start = Vector2(0.5,0.5)
+var indicator_scale_target = Vector2(1.5,1.5)
+
+var tween
+var tween2
 
 
 func _ready():
