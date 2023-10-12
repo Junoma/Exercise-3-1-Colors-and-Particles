@@ -46,8 +46,8 @@ func breathe():
 		tween.kill()
 	tween = get_tree().create_tween().set_parallel(true)
 	for i in $Indicator_Container.get_children():
-		tween.tween_property(i.get_node("Highlight"), "scale", indicator_scale, 0.5)
-		tween.tween_property(i.get_node("Highlight"), "modulate:a", indicator_mod, 0.5)
+		tween.tween_property(i.get_node("/root/Game/Ball/Images/Highlight"), "scale", indicator_scale, 0.5)
+		tween.tween_property(i.get_node("/root/Game/Ball/Images/Highlight"), "modulate:a", indicator_mod, 0.5)
 	tween.set_parallel(false)
 	tween.tween_callback(breathe)
 

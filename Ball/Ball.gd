@@ -14,6 +14,16 @@ var wobble_max = 5
 var wobble_direction = Vector2.ZERO
 var decay_wobble = 0.15
 
+var Indicator = load("res://UI/Indicator.tscn")
+var indicator_margin = Vector2(25, 15)
+var indicator_index = 25
+var indicator_mod = 0.0
+var indicator_mod_start = 0.0
+var indicator_mod_target = 0.5
+var indicator_scale = Vector2(0.5,0.5)
+var indicator_scale_start = Vector2(0.5,0.5)
+var indicator_scale_target = Vector2(1.5,1.5)
+
 var tween
 
 var distort_effect = 0.0002
@@ -61,7 +71,27 @@ func _integrate_forces(state):
 	if state.linear_velocity.length() > max_speed:
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed
 
+func update_lives():
+	var indicator_pos = Vector2(indicator_margin.x, Global.VP.y - indicator_margin.y)
+	for i in $Indicator_Container.get_children():
+		i.queue_free()
+	for i in range(Global.lives):
+		var indicator = Indicator.instantiate()
+		indicator.position = Vector2(indicator_pos.x + i*indicator_index, indicator_pos.y)
+		$Indicator_Container.add_child(indicator)
+		breathe()
 
+func breathe():
+	indicator_scale = indicator_scale_target if indicator_scale == indicator_scale_start else indicator_scale_start
+	indicator_mod = indicator_mod_target if indicator_mod == indicator_mod_start else indicator_mod_start
+	if tween: 
+		tween.kill()
+	tween = get_tree().create_tween().set_parallel(true)
+	for i in $Indicator_Container.get_children():
+		tween.tween_property(i.get_node("/root/Ball/Images/Highlight"), "scale", indicator_scale, 0.5)
+		tween.tween_property(i.get_node("/root/Ball/Images/Highlight"), "modulate:a", indicator_mod, 0.5)
+	tween.set_parallel(false)
+	tween.tween_callback(breathe)
 
 func die():
 	var die_sound = get_node_or_null("/root/Game/Die_Sound")

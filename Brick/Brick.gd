@@ -11,6 +11,7 @@ var time_s = 1.2
 var time_v = 1.5
 var tween
 
+
 func _ready():
 	position = new_position
 	position.x = new_position.x
